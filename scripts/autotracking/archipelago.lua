@@ -97,15 +97,7 @@ function onItem(index, item_id, item_name, player_number)
     end
 	local is_local = player_number == Archipelago.PlayerNumber
     CUR_INDEX = index;
-
-    -- CORRECTIF DU DÉCALAGE DE 2 POUR LES TOURS ET LES INFOS SUIVANTES
-    local corrected_item_id = item_id
-    if item_id >= 85 then
-        corrected_item_id = item_id - 2
-    end
-
-    local v = ITEM_MAPPING[corrected_item_id]
-    local v = ITEM_MAPPING[item_id-2]
+    local v = ITEM_MAPPING[item_id]
     if not v then
         if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
             print(string.format("onItem: could not find item mapping for id %s", item_id))
